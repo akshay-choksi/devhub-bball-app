@@ -1,12 +1,12 @@
-# Template Bottom tabs
+# NCAA Basketball Prediction Model App
 
-Template starter with React Navigation Bottom Tabs
+Template taken from https://github.com/codingki/react-native-expo-template by [Nur Fikri and Connor Wilson](https://twitter.com/kikiding/). 
 
-# Preview
-
-![../media/bottomtabs.gif](../media/bottomtabs.gif | width=200)
+This project is a React Native App created to showcase a pre-existing DevHub NCAA Men's Basketball prediction model as part of the IPP Intership Spring 2022 session through Devhub. Work done by Nour Goulmamine, Glendon Chin, Caitlyn Fay, and Akshay Choksi.
 
 # Installation
+
+If node and expo are not already installed globally
 
 1. Install [node.js](https://nodejs.org/en/)
 2. Install Expo
@@ -14,6 +14,8 @@ Template starter with React Navigation Bottom Tabs
    ```jsx
    npm install --global expo-cli
    ```
+
+If node and expo are already installed
 
 3. Download this repo
 4. Install deps on your template folder
@@ -30,8 +32,6 @@ Template starter with React Navigation Bottom Tabs
 
 ### Rapi UI
 
-![../media/hero.png](../media/hero.png)
-
 These UI components are provided by [Rapi UI](https://rapi-ui.kikiding.space/).
 Check the [documentation](https://rapi-ui.kikiding.space/docs/) for usage and more components.
 
@@ -45,7 +45,3 @@ These are the folders and the functionality
 /src/navigation -> for React Navigation
 /src/screens -> for Screens
 ```
-
-if you find these useful don't forget to give it a star ⭐ and share it to your friends ❤️
-
-Reach me on [twitter](https://twitter.com/kikiding/)
