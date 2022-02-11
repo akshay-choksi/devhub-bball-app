@@ -24,7 +24,7 @@ export default function ({ navigation }) {
         <Section>
           <SectionContent>
             <Text fontWeight="bold" style={{ textAlign: "center" }}>
-              Example button left in to show navigation
+              this is button
             </Text>
             <Button
               text="Go to second screen"
