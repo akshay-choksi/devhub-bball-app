@@ -3,14 +3,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { themeColor, useTheme } from "react-native-rapi-ui";
+//import { themeColor } from "react-native-rapi-ui";
 import TabBarIcon from "../components/utils/TabBarIcon";
 import TabBarText from "../components/utils/TabBarText";
 
 import Home from "../screens/Home";
 import SecondScreen from "../screens/SecondScreen";
 import About from "../screens/About";
-import Profile from "../screens/Profile";
+import Stats from "../screens/Stats";
+import Teams from "../screens/Teams";
 
 const MainStack = createNativeStackNavigator();
 const Main = () => {
@@ -28,14 +29,13 @@ const Main = () => {
 
 const Tabs = createBottomTabNavigator();
 const MainTabs = () => {
-  const { isDarkmode } = useTheme();
   return (
     <Tabs.Navigator
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          borderTopColor: isDarkmode ? themeColor.dark100 : "#c0c0c0",
-          backgroundColor: isDarkmode ? themeColor.dark200 : "#ffffff",
+          borderTopColor: "#c0c0c0", //isDarkmode ?  : "#c0c0c0",
+          backgroundColor: "#ffffff" //isDarkmode ? themeColor.dark200 : "#ffffff",
         },
       }}
     >
@@ -48,19 +48,31 @@ const MainTabs = () => {
             <TabBarText focused={focused} title="Home" />
           ),
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"md-home"} />
+            <TabBarIcon focused={focused} icon={"ios-basketball"} />
           ),
         }}
       />
       <Tabs.Screen
-        name="Profile"
-        component={Profile}
+        name="Teams"
+        component={Teams}
         options={{
           tabBarLabel: ({ focused }) => (
-            <TabBarText focused={focused} title="Profile" />
+            <TabBarText focused={focused} title="Teams" />
           ),
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} icon={"person"} />
+            <TabBarIcon focused={focused} icon={"shirt"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Stats"
+        component={Stats}
+        options={{
+          tabBarLabel: ({ focused }) => (
+            <TabBarText focused={focused} title="Stats" />
+          ),
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} icon={"ios-bar-chart"} />
           ),
         }}
       />

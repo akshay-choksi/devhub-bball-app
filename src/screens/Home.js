@@ -5,12 +5,11 @@ import {
   Button,
   Text,
   Section,
-  SectionContent,
-  useTheme,
+  SectionContent
 } from "react-native-rapi-ui";
 
 export default function ({ navigation }) {
-  const { isDarkmode, setTheme } = useTheme();
+  //const { isDarkmode, setTheme } = useTheme();
   return (
     <Layout>
       <View
@@ -24,7 +23,7 @@ export default function ({ navigation }) {
         <Section>
           <SectionContent>
             <Text fontWeight="bold" style={{ textAlign: "center" }}>
-              this is button
+              Navigation Example
             </Text>
             <Button
               text="Go to second screen"
@@ -36,20 +35,7 @@ export default function ({ navigation }) {
               }}
             />
 
-            <Button
-              text={isDarkmode ? "Light Mode" : "Dark Mode"}
-              status={isDarkmode ? "success" : "warning"}
-              onPress={() => {
-                if (isDarkmode) {
-                  setTheme("light");
-                } else {
-                  setTheme("dark");
-                }
-              }}
-              style={{
-                marginTop: 10,
-              }}
-            />
+            
           </SectionContent>
         </Section>
       </View>
