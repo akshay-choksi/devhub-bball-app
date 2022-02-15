@@ -11,6 +11,7 @@ import Home from "../screens/Home";
 import SecondScreen from "../screens/SecondScreen";
 import About from "../screens/About";
 import Stats from "../screens/Stats";
+import Games from "../screens/Games";
 import Teams from "../screens/Teams";
 
 const MainStack = createNativeStackNavigator();
@@ -61,6 +62,18 @@ const MainTabs = () => {
           ),
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} icon={"shirt"} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Games"
+        component={Games}
+        options={{
+          tabBarLabel: ({ focused }) => (
+            <TabBarText focused={focused} title="Games" />
+          ),
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} icon={"game-controller"} />
           ),
         }}
       />
