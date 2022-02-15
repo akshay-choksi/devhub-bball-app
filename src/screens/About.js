@@ -12,7 +12,7 @@ export default function ({ navigation }) {
 					justifyContent: 'center',
 				}}
 			>
-				<Text>This is the About tab</Text>
+				<Text>This is a basketball prediction model</Text>
 			</View>
 		</Layout>
 	);
