@@ -44,7 +44,7 @@ export default App = () => {
   );
 };
 
-
+/*
 export default function ({ navigation }) {
   //const { isDarkmode, setTheme } = useTheme();
   return (
@@ -79,3 +79,4 @@ export default function ({ navigation }) {
     </Layout>
   );
 }
+*/
