@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Layout, Text } from 'react-native-rapi-ui';
 import { ThemeProvider } from "react-native-rapi-ui";
 import { ActivityIndicator, FlatList } from 'react-native';
@@ -10,7 +10,7 @@ export default App = () => {
 	// nested text
 	const ReactText = () => {
 		const [titleText, setTitleText] = useState("All Games");
-		const bodyText = "A complete list of all games stats.";
+		const bodyText = "A complete list of all games stats.";
 	  
 		const onPressTitle = () => {
 		  setTitleText("Basketball Games");
