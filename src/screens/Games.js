@@ -22,17 +22,28 @@ export default function ({ navigation }) {
 	}
 
 	return (
-		<View>
+		<View
+		style={{
+			flex: 1,
+			alignItems: 'left',
+			justifyContent: 'left',
+			marginTop: 20,
+			marginLeft: 5
+		}}>
 			<Text>Games</Text>
 			{isLoading ? <ActivityIndicator /> : (
 				<SafeAreaView>
-				<FlatList>
+				<FlatList
 					data={name}
-					keyExtractor={({ id }, index) => id}
+					keyExtractor={( item, index) => item.key}
 					renderItem={({ item }) => (
-						<Text>{item.pick}</Text>
+						<Text>
+							{item.home}
+							{item.away}
+``							{item.pick}
+							</Text>
 					)}
-				</FlatList>
+				/>
 				</SafeAreaView>
 			)
 			}
