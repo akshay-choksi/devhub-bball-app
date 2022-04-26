@@ -1,9 +1,9 @@
-import React from 'react';
-import { View,FlatList, ActivityIndicator } from 'react-native';
-import { Layout, Text, Section, SectionContent, Picker } from 'react-native-rapi-ui';
+import React, {useState, useEffect} from 'react';
+import { View, ActivityIndicator, StyleSheet, StatusBar } from 'react-native';
+import { Layout, Section, SectionContent,Text, Picker } from 'react-native-rapi-ui';
 
 export default function ({ navigation }) {
-    /*
+    
 	const [isLoading, setLoading] = useState(true);
   	const [data, setData] = useState([]);
   	const getGames = async () => {
@@ -20,14 +20,26 @@ export default function ({ navigation }) {
 	useEffect(() => {
 		getGames();
 	}, []);
-    */
-    const [pickerValue, setPickerValue] = React.useState(null);
-    const items = [
-        { label: 'American', value: 'Amer' },
-        { label: 'Atlantic Coastal Conference', value: 'ACC' },
-        { label: 'Atlantic 10', value: 'A10' },
-    ];
 
+    const [showPicker, setShowPicker] = useState(false)
+    const [pickerLabel, setPickerLabel] = useState('label');
+    const [pickerValue, setPickerValue] = useState('value');
+    const items = [
+        { label: 'American', value: 'AAC has 1 championship.' },
+        { label: 'Atlantic Coastal Conference', value: 'ACC has 10 championships.' },
+        { label: 'Atlantic 10', value: 'A10 has 0 :/ ' },
+    ];
+//new additions
+   
+
+    const styles = StyleSheet.create({
+      text:{
+        fontSize:30,
+        alignSelf: 'center',
+        color: 'red'
+      }
+    })
+    
 	return (
 		<Layout>
 			<View
@@ -38,58 +50,76 @@ export default function ({ navigation }) {
 				}}
 			>
 				<Text>NCAA D1 Basketball Teams</Text>
+
+               
 			</View>
-            <Section style={{ marginHorizontal: 20, marginTop: 20 }}>
+      <View
+				style={{
+					flex: 1,
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
+				{isLoading ? <ActivityIndicator/> : (
+        		<FlatList
+          			data={data}
+          			keyExtractor={({ id }, index) => id}
+          			renderItem={({ item }) => (
+            		<Text>{item.team_name}</Text>
+          			)}
+        		/>
+      			)}
+			</View>
+
+      {/* {
+       showPicker&&  ( */}
+      <View
+				style={{
+					fontSize: 100,
+					alignItems: 'center',
+					color: 'red',
+				}}
+			>
+				 <Text> The {pickerValue} </Text> 
+               
+			</View>    
+        )
+            <Section style={{ marginHorizontal: 20, marginTop: 100 }}>
             <SectionContent>
                 <View>
-                    <Text style={{ marginBottom: 10 }}>Picker</Text>
+                    <Text style={{ marginBottom: 10 }}>Conferences</Text>
                     <Picker
                         items={items}
                         value={pickerValue}
-                        placeholder="Choose your Conference"
-                        onValueChange={(val) => setPickerValue(val)}
+                        label = {pickerLabel}
+                        placeholder="Choose your Conference..."
+                        onValueChange={(value) => setPickerValue(value)}
+                        onChange={(label) => setPickerLabel(label)}
+                        // onClick ={(showPicker => true)}
                     />
-                </View>
+                 
+              
+      </View>
             </SectionContent>
         </Section>
+    
+       
+
+
+    {/* Trying to use data */}
+        {/* <View style={{ flex: 1, padding: 24 }}>
+      {isLoading ? <ActivityIndicator/> : (
+        <FlatList
+          data={data}
+          keyExtractor={({ id}, index) => id}
+          renderItem={({ item }) => (
+            <Text>{item.logoURL}, {item.abbr}</Text>
+          )}
+        />
+      )}
+    </View> */}
+
 		</Layout>
     );
 }
 
-/*
-//Add a teams 'Section'
-<Section>
-    <SectionContent>
-        <Text> NCAA DI Teams </Text>
-    </SectionContent>
-</Section>
-;
-//
-
-//Conferences Picker
-const Forms = () => {
-    const [pickerValue, setPickerValue] = React.useState(null);
-    const items = [
-        { label: 'American', value: 'Amer' },
-        { label: 'Atlantic Coastal Conference', value: 'ACC' },
-        { label: 'Atlantic 10', value: 'A10' },
-    ];
-    return (
-        <Section style={{ marginHorizontal: 20, marginTop: 20 }}>
-            <SectionContent>
-                <View>
-                    <Text style={{ marginBottom: 10 }}>Picker</Text>
-                    <Picker
-                        items={items}
-                        value={pickerValue}
-                        placeholder="Choose your Conference"
-                        onValueChange={(val) => setPickerValue(val)}
-                    />
-                </View>
-            </SectionContent>
-        </Section>
-    );
-};
-
-export default Forms;
-*/
