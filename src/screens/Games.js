@@ -33,13 +33,8 @@ export default function ({ navigation }) {
 				away_score: 'Away Score',
 			},
 			{
-				spread: 'Spread',
-				value: 'Value',
-			},
-			{
 				pick: 'Pick',
 				level: 'Level',
-				final_result: 'Final Result'
 			}
 		]
 	)
@@ -63,24 +58,12 @@ export default function ({ navigation }) {
 				accessor: 'away_score'
 			},
 			{
-				Header: 'Spread',
-				accessor: 'spread'
-			},
-			{
-				Header: 'value',
-				accessor: 'value'
-			},
-			{
 				Header: 'Pick',
 				accessor: 'pick'
 			},
 			{
 				Header: 'Level',
 				accessor: 'level'
-			},
-			{
-				Header: 'Final Result',
-				accessor: 'final_result'
 			}
 		]
 	)
@@ -104,7 +87,7 @@ export default function ({ navigation }) {
 			}}>
 			<Text>Games</Text>
 			{isLoading ? <ActivityIndicator /> : (
-				<FlatList>
+				<Text>
 					<table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
 						<thead>
 							{headerGroups.map(headerGroup => (
