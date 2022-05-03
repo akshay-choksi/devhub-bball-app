@@ -104,7 +104,7 @@ export default function ({ navigation }) {
 			}}>
 			<Text>Games</Text>
 			{isLoading ? <ActivityIndicator /> : (
-				<Text>
+				<FlatList>
 					<table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
 						<thead>
 							{headerGroups.map(headerGroup => (
@@ -157,17 +157,32 @@ export default function ({ navigation }) {
 
 
 /*
-{
-  Data.filter(post => {
-	if (query === '') {
-	  return post;
-	} else if (post.title.toLowerCase().includes(query.toLowerCase())) {
-	  return post;
-	}
-  }).map((post, index) => (
-	<div className="box" key={index}>
-	  {post.title}
-	  {post.author}
-	  ))
-}	);
+return (
+		<View
+		style={{
+			flex: 1,
+			alignItems: 'left',
+			justifyContent: 'left',
+			marginTop: 20,
+			marginLeft: 5
+		}}>
+			<Text>Games</Text>
+			{isLoading ? <ActivityIndicator /> : (
+				<SafeAreaView>
+				<FlatList
+					data={name}
+					keyExtractor={( item, index) => item.key}
+					renderItem={({ item }) => (
+						<Text>
+							{item.home}
+							{item.away}
+``							{item.pick}
+							</Text>
+					)}
+				/>
+				</SafeAreaView>
+			)
+			}
+		</View>
+	);
 	*/
